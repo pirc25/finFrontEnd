@@ -1,4 +1,4 @@
-import "./App.css";
+dimport "./App.css";
 import CompNavBar from "./components/ComNavBar/CompNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContacsPage from "./page/contacs.page/ContacsPage";
@@ -22,10 +22,10 @@ function App() {
         </Box>
         <div style={{ paddingTop: "20px" }}>
           <Routes>
-            <Route path="/finFront/" element={<HomePage />} /> {/* Ruta raíz */}
-            <Route path="/finFront/contactos" element={<ContacsPage />} />
-            <Route path="/finFront/productos" element={<ProductosPage />} />
-            <Route path="/finFront/login" element={<LoginPage />} />
+            <Route path="/finFrontEnd/" element={<HomePage />} /> {/* Ruta raíz */}
+            <Route path="/finFrontEnd/contactos" element={<ContacsPage />} />
+            <Route path="/finFrontEnd/productos" element={<ProductosPage />} />
+            <Route path="/finFrontEnd/login" element={<LoginPage />} />
           </Routes>
         </div>
       </infoUser.Provider>
