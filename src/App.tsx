@@ -3,6 +3,7 @@ import CompNavBar from "./components/ComNavBar/CompNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContacsPage from "./page/contacs.page/ContacsPage";
 import ProductosPage from "./page/productos.page/ProductosPage";
+import LoginPage from "./page/login.page/LoginPage";
 import HomePage from "./page/home.page/HomePage";
 import { Box } from "@mui/material";
 import { infoUser } from "./hooks/UserContext";
@@ -10,7 +11,7 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYmRiYWEzYy0zNTY1LTQ0MDctYTI0ZC03YjJlMWJlOGI4ZGIiLCJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlhdCI6MTczNTQ2ODU4MywiZXhwIjoxNzcxNDY4NTgzfQ.MORXwffUYkaXYE1mbZiA1aE18BdJLv7k0EkGIqCJSDE"
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyN2UxM2Q3MS04Y2FmLTRmZDgtODZlYS1lYTQ2YWZkMGVkNWMiLCJ1c2VybmFtZSI6InBpcmMyNSIsImlhdCI6MTczNjQ4MTkzNywiZXhwIjoyMDk2NDgxOTM3fQ.SPHO74YMsFNklGM0B9H-rQX0GJ5JsWWkKKihSuRa1a4"
   );
   return (
     <BrowserRouter>
@@ -21,9 +22,10 @@ function App() {
         </Box>
         <div style={{ paddingTop: "20px" }}>
           <Routes>
-            <Route path="/" element={<HomePage />} /> {/* Ruta raíz */}
-            <Route path="/contactos" element={<ContacsPage />} />
-            <Route path="/productos" element={<ProductosPage />} />
+            <Route path="/finFront/" element={<HomePage />} /> {/* Ruta raíz */}
+            <Route path="/finFront/contactos" element={<ContacsPage />} />
+            <Route path="/finFront/productos" element={<ProductosPage />} />
+            <Route path="/finFront/login" element={<LoginPage />} />
           </Routes>
         </div>
       </infoUser.Provider>

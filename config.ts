@@ -1,2 +1,2 @@
-const API_URL: string = "http://192.168.1.24:8000/api/v1/";
+const API_URL: string = "https://financiero-api.onrender.com/api/v1/";
 export default API_URL;
