@@ -1,4 +1,4 @@
-dimport "./App.css";
+import "./App.css";
 import CompNavBar from "./components/ComNavBar/CompNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContacsPage from "./page/contacs.page/ContacsPage";
