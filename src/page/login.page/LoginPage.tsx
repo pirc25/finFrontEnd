@@ -1,9 +1,9 @@
-import React from "react";
 import { Box, Button, Grid2, TextField, Typography } from "@mui/material";
 
 export default function LoginPage() {
-
-handleIngresar () => 
+  const handleIngresar = () => {
+    console.log("vamos Ingresar");
+  };
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -20,7 +20,7 @@ handleIngresar () =>
           <TextField>Password</TextField>
         </Grid2>
         <Grid2 size={12}>
-          <Button onClick={}>Ingresar</Button>
+          <Button onClick={handleIngresar}>Ingresar</Button>
         </Grid2>
       </Grid2>
     </Box>
