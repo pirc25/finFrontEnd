@@ -1,15 +1,13 @@
+import React, { useState } from "react";
 import "./App.css";
-import CompNavBar from "./components/ComNavBar/CompNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CompNavBar from "./components/ComNavBar/CompNavBar";
 import ContacsPage from "./page/contacs.page/ContacsPage";
 import ProductosPage from "./page/productos.page/ProductosPage";
-import LoginPage from "./page/login.page/LoginPage";
 import HomePage from "./page/home.page/HomePage";
+import LoginPage from "./page/login.page/LoginPage";
 import { Box } from "@mui/material";
 import { infoUser } from "./hooks/UserContext";
-import { useState } from "react";
-import React from "react";
-import ProductsPage from './page/productos.page/ProductosPage';
 
 function App() {
   const [token, setToken] = useState(
