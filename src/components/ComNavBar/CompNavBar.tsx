@@ -25,8 +25,8 @@ interface Props {
 
 const drawerWidth = 240;
 const navItems = [
-  { url: "finFront//productos", titulo: "Productos" },
-  { url: "finFront//contactos", titulo: "Contactos" },
+  { url: "finFrontEnd/productos", titulo: "Productos" },
+  { url: "finFrontEnd/contactos", titulo: "Contactos" },
 ];
 
 export default function CompNavBar(props: Props) {
@@ -39,7 +39,7 @@ export default function CompNavBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Link to={"/finFront"} style={{ textDecoration: "none" }}>
+      <Link to={"/finFrontEnd"} style={{ textDecoration: "none" }}>
         <Typography variant="h6" sx={{ my: 2 }}>
           VAR{" "}
         </Typography>
@@ -88,7 +88,7 @@ export default function CompNavBar(props: Props) {
           >
             {" "}
             <Link
-              to={"/finFront"}
+              to={"/finFrontEnd"}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               VAR

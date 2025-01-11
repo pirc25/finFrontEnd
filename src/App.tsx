@@ -8,6 +8,8 @@ import HomePage from "./page/home.page/HomePage";
 import { Box } from "@mui/material";
 import { infoUser } from "./hooks/UserContext";
 import { useState } from "react";
+import React from "react";
+import ProductsPage from './page/productos.page/ProductosPage';
 
 function App() {
   const [token, setToken] = useState(
@@ -22,7 +24,8 @@ function App() {
         </Box>
         <div style={{ paddingTop: "20px" }}>
           <Routes>
-            <Route path="/finFrontEnd/" element={<HomePage />} /> {/* Ruta raíz */}
+            <Route path="/finFrontEnd/" element={<HomePage />} />{" "}
+            {/* Ruta raíz */}
             <Route path="/finFrontEnd/contactos" element={<ContacsPage />} />
             <Route path="/finFrontEnd/productos" element={<ProductosPage />} />
             <Route path="/finFrontEnd/login" element={<LoginPage />} />
