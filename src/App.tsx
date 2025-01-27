@@ -6,13 +6,12 @@ import ContacsPage from "./page/contacs.page/ContacsPage";
 import ProductosPage from "./page/productos.page/ProductosPage";
 import HomePage from "./page/home.page/HomePage";
 import LoginPage from "./page/login.page/LoginPage";
-import { Box } from "@mui/material";
 import { infoUser } from "./hooks/UserContext";
+import { Box } from "@mui/material";
 
 function App() {
-  const [token, setToken] = useState(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyN2UxM2Q3MS04Y2FmLTRmZDgtODZlYS1lYTQ2YWZkMGVkNWMiLCJ1c2VybmFtZSI6InBpcmMyNSIsImlhdCI6MTczNjQ4MTkzNywiZXhwIjoyMDk2NDgxOTM3fQ.SPHO74YMsFNklGM0B9H-rQX0GJ5JsWWkKKihSuRa1a4"
-  );
+  const [userState, setUserState] = useState<boolean>(false);
+  const [token, setToken] = useState<string>("");
   return (
     <BrowserRouter>
       {" "}
@@ -22,11 +21,34 @@ function App() {
         </Box>
         <div style={{ paddingTop: "20px" }}>
           <Routes>
-            <Route path="/finFrontEnd/" element={<HomePage />} />{" "}
+            {userState && <Route path="/finFrontEnd/" element={<HomePage />} />}
+            {!userState && (
+              <Route
+                path="/finFrontEnd/"
+                element={
+                  <LoginPage
+                    setToken={setToken}
+                    setUserState={setUserState}
+                    // // setUserState={setUserState}
+                  />
+                }
+              />
+            )}{" "}
             {/* Ruta raíz */}
-            <Route path="/finFrontEnd/contactos" element={<ContacsPage />} />
-            <Route path="/finFrontEnd/productos" element={<ProductosPage />} />
-            <Route path="/finFrontEnd/login" element={<LoginPage />} />
+            <Route
+              path="/finFrontEnd/contactos"
+              element={<ContacsPage />}
+            />
+            <Route
+              path="/finFrontEnd/productos"
+              element={<ProductosPage  />}
+            />
+            <Route
+              path="/finFrontEnd/login"
+              element={
+                <LoginPage setToken={setToken} setUserState={setUserState} />
+              }
+            />
           </Routes>
         </div>
       </infoUser.Provider>

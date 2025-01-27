@@ -2,7 +2,7 @@ import API_URL from "../../config.ts";
 import axios from "axios";
 
 export async function getData(url: string, token: string) {
-   try {
+  try {
     const response = await axios.get(API_URL + url, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -15,11 +15,19 @@ export async function getData(url: string, token: string) {
   }
 }
 
-// export async function postData(url: string, data, token: string) {
-//   return fetch(API_URL + url)
-//     .then((response) => response.json())
-//     .catch((error) => console.log(error));
-// }
+export async function postData(url: string, data: unknown, token: string) {
+  try {
+    const response = await axios.post(API_URL + url, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error en la solicitud POST:", error);
+    throw error;
+  }
+}
 
 // export async function putData(url: string, data, token: string) {
 //   return fetch(API_URL + url)

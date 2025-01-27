@@ -1,4 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import {
+  useState,
+  useEffect,
+  useContext,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import {
   DataGrid,
   GridActionsCellItem,
@@ -11,11 +17,15 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import * as globalServices from "../../services/global.services.ts";
 import { infoUser } from "../../hooks/UserContext.tsx";
-import AgregarItem from "./AgregarItem.tsx";
+// import AgregarItem from "../CompAgregarItem/CompAgregarItem.tsx";
 
 interface CompDataGridProps {
   url: string;
   cols: GridColDef[];
+  agregarItem: boolean;
+  setAgregarItem: Dispatch<SetStateAction<boolean>>;
+  actualizacionEstado: boolean;
+  setActualizacionEstado: Dispatch<SetStateAction<boolean>>;
 }
 
 interface RowData {
@@ -23,29 +33,37 @@ interface RowData {
   [key: string]: unknown;
 }
 
-export default function CompDataGrid({ url, cols }: CompDataGridProps) {
-  const [openAddItem, setOpenAddItem] = useState<boolean>(false);
+export default function CompDataGrid({
+  url,
+  cols,
+  setAgregarItem,
+  actualizacionEstado,
+  setActualizacionEstado,
+}: CompDataGridProps) {
+  // const [openAddItem, setOpenAddItem] = useState<boolean>(false);
   const [rows, setRows] = useState<RowData[]>([]);
-  const [stateModifications, setStateModifications] = useState<boolean>(false);
+  // const [stateModifications, setStateModifications] = useState<boolean>(false);
   const { token } = useContext(infoUser);
-  const campos: string[] = cols
-    .map((element) => element.headerName)
-    .filter((headerName): headerName is string => headerName !== undefined);
+  // const campos: string[] = cols
+  //   .map((element) => element.headerName)
+  //   .filter((headerName): headerName is string => headerName !== undefined);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await globalServices.getData(url, token);
         setRows(res);
+        setActualizacionEstado(false);
       } catch (error) {
         console.error("Error feching data:", error);
       }
     }
     fetchData();
-  }, [token, url, stateModifications]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, url, actualizacionEstado]);
 
   const handleCreateItem = () => {
-    setOpenAddItem(true);
+    setAgregarItem(true);
     console.log("Crear una nuevo item");
   };
 
@@ -92,14 +110,14 @@ export default function CompDataGrid({ url, cols }: CompDataGridProps) {
       </Button>
       <Box sx={{ margin: "0px 20px" }}>
         <DataGrid rows={rows} columns={columns} />
-        {openAddItem && (
+        {/* {openAddItem && (
           <AgregarItem
             campos={campos}
             open={openAddItem}
             setOpen={setOpenAddItem}
             setStateModifications={setStateModifications}
           />
-        )}
+        )} */}
       </Box>
     </div>
   );
